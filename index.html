@@ -1,0 +1,557 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Jennifer-Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/index.min.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div id='app'>
+        <div id='container' class="swiper-container swiper-container-vertical">
+            <div class="swiper-wrapper">
+                <!-- first page -->
+                <div class="swiper-slide">
+                    <section class="page">
+                        <!-- <video class="fullscreenvideo" id="bgvid" src="http://p1nygcw4a.bkt.clouddn.com/01_1.mp4" playsinline="" autoplay="true"
+                        muted="" loop="true">
+
+                    </video> -->
+                        <video class="fullscreenvideo" id="bgvid" playsinline="" autoplay muted loop>
+                            <source src="images/01_1.mp4">
+                        </video>
+                        <div class="page page_one">
+                            <h3 class="sc-abs-center"> Love Thinking,Designing and Creating </h3>
+                        </div>
+                    </section>
+                </div>
+                <!-- second-page -->
+                <div class="swiper-slide">
+                    <canvas id="canvas"></canvas>
+                    <section class="page page_2">
+                        <div class="title">
+                            ABOUT ME
+                        </div>
+                        <div class="descrition">
+                            Specializing in product demands analysis、making prototype and design. 
+                            <br> Besides,i am familiar with different kinds of prototype and designing software,
+                            <br>such as Axsure、X-mind、Visio、Mockingbot、Principle、Photoshop、AI、Sketch、AE、PR and so on.
+                            <br>  Have a certain understanding of HTML and JS.
+                    
+                        </div>
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="http://p1wwe0p93.bkt.clouddn.com/personal.png" alt="">
+                            </div>
+                            <div class="detail">
+                                <div class="name">
+                                    Jennifer Zeng
+                                </div>
+                                <div class="time">
+                                    2016.11 - Current
+                                </div>
+                                <div class="company">
+                                    <span>
+                                        Genting HK.Co.,Ltd
+                                    </span>
+                                    <span class="position">
+                                        UI Designer
+                                    </span>
+                                </div>
+                                <div class="job">
+                                    Behalf Project Design
+                                </div>
+                                <div class="content">
+                                    Starcruise Mobile APP、Quick Pay Self-Checkout System、Reservation Managerment System、Payment Hub System、Resonline
+                                </div>
+                                <div class="time">
+                                    2015.12 - 2016.10
+                                </div>
+                                <div class="company">
+                                    <span>
+                                        Guangzhou Readchen Network Technology Co.,Ltd
+                                    </span>
+                                    <span class="position">
+                                        UI Designer
+                                    </span>
+                                </div>
+                                <div class="job">
+                                    Behalf Project Design
+                                </div>
+                                <div class="content">
+                                    CarPool Mobile APP、Trading Mobile APP、Beauty Salons APP、Readchen Website
+
+                                </div>
+
+                                <div class="time">
+                                    2012.10 - 2014.09
+                                </div>
+                                <div class="company">
+                                    <span>
+                                        Juntao Jewelry Co.,Ltd Web Designer
+                                    </span>
+                                    <span class="position">
+                                        UI Designer
+                                    </span>
+                                </div>
+                                <div class="job">
+                                    Behalf Project Design
+                                </div>
+                                <div class="content">
+                                    Shop Design and Operations
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+                <!-- third page -->
+                <div class="swiper-slide">
+                    <section class="page page_3">
+                        <div class="title">
+                            MY WORKS
+                        </div>
+                        <div class="descrition">
+                            Carefully design every piece of work
+                        </div>
+                        <div class="nav">
+                            <span v-for='(item,i) in  data' :class="{active:i==current}" @click='jump(i)'>
+                                {{item.title}}
+                                <i></i>
+                            </span>
+
+                        </div>
+                        <div id='work' class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div v-for='(item,i) in  data' class="swiper-slide">
+                                    <img v-for='img in item.pic' :src="img.cover" alt="" @click="showDialog(img)">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- four page -->
+                <div class="swiper-slide">
+                    <section class="page page_4">
+                        <div class="contact">
+                            <div class="title">CONTACT</div>
+                            <div class="descrition">Looking forward to meet you</div>
+                            <div class='box'>
+                                <div>
+                                    <img src="images/mobile.png" alt="">
+                                    <p>+86 13822189614</p>
+                                </div>
+                                <div>
+                                    <img src="images/email.png" alt="">
+                                    <p>523791524@qq.com</p>
+                                </div>
+                                <div>
+                                    <img src="images/nav.png" alt="">
+                                    <p>Guangzhou,China</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <!-- dialog -->
+        <div class="back_draw" :class="{'hidden':!isShow}">
+            <div class="content">
+                <div class="content_title">
+                    <span>{{currentContent.name}}</span>
+                    <a class="link" :href='currentContent.link'>check the entre demo</a>
+                </div>
+                <img @click="close()" class="close" src="/images/close.png" alt="">
+
+                <img v-for='item in currentContent.details' class="img" :src="item" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+<script src="js/swiper.min.js"></script>
+<script src='https://cdn.bootcss.com/vue/2.5.13/vue.min.js'></script>
+<script>
+    (function () {
+        var ele = document.getElementsByTagName("html")[0],
+            size = document.body.clientWidth / 750 * 32;
+        ele.style.fontSize = size + "px";
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var bgvid = document.getElementById('bgvid');
+        if (screenWidth / screenHeight > 16 / 9) {
+            bgvid.style.width = "100%";
+        } else {
+
+            bgvid.style.height = "100%";
+        }
+
+
+
+    })()
+
+</script>
+
+<script>
+    /** 
+        cover:封面连接，
+        name:项目名称，
+        details:长图图片数组
+        link:墨刀连接
+    */
+    var data = [
+        {
+            title: "App Design",
+            pic: [
+                {
+                    cover: "http://p1wwe0p93.bkt.clouddn.com/1.jpg",
+                    name: "Star Cruise International APP",
+                    details: [
+                        'http://p1wwe0p93.bkt.clouddn.com/SC1.jpg',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC2.gif',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC3.gif',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC4.jpg',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC5.jpg',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC6.jpg',
+                        'http://p1wwe0p93.bkt.clouddn.com/SC7.jpg',
+                        'http://p1wwe0p93.bkt.clouddn.com/%E7%88%B1%E5%BF%83.gif'
+                    ],
+                    link: 'https://bagc5y.axshare.com'
+                },
+
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/2.jpg",
+                 name: "Self Checkout System ",
+                  details: [
+                  'http://p1wwe0p93.bkt.clouddn.com/QUICKpay1.png',
+                  'http://p1wwe0p93.bkt.clouddn.com/QUICKpay2.gif',
+                  'http://p1wwe0p93.bkt.clouddn.com/QUICKpay3.png',
+
+                  ],
+                   link: 'https://pro.modao.cc/app/UDOYN7RYVJzcb0QALHQ8gkLv9TvsWFl' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/3.gif", 
+                  name: "yun jian APP", 
+                  details: [
+                  'http://p1wwe0p93.bkt.clouddn.com/%20%E4%BA%91%E5%89%AA%20%E6%8B%B7%E8%B4%9D.jpg'
+                  ],
+                  link: 'https://pro.modao.cc/app/OBFrS9Zg3deyWyK4w7VSj9q6RiZmZjF' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/a4.jpg",
+                 name: "Readchen Mobile APP",
+                details: [
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9801.png',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9802.gif',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9803.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9804.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9805.gif',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9806.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9807.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%9808.gif'
+
+                ], 
+                
+                link: 'https://free.modao.cc/app/1ym1IcGTngDRnjwwXyOVWDmxAQbK04u' },
+
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/a5.jpg", name: "全润通APP", details: [
+                    'http://p1wwe0p93.bkt.clouddn.com/%E5%85%A8%E6%B6%A6%E9%80%9A_01.jpg',
+                    'http://p1wwe0p93.bkt.clouddn.com/%E5%85%A8%E6%B6%A6%E9%80%9A_02.jpg',
+                    'http://p1wwe0p93.bkt.clouddn.com/%E5%85%A8%E6%B6%A6%E9%80%9A_03.jpg',
+                ], link: 'https://pro.modao.cc/app/bIyHSKvQYuK29wUn8RTVTIx8J6eesnP' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/6.jpg", name: "Cao Gen Original Music APP",
+                 details: [
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen01.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen02.png',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen03.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen04.gif',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen05.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen06.gif',
+                     'http://p1wwe0p93.bkt.clouddn.com/caogen07_05.jpg',
+                 ], link: '' }
+            ]
+        },
+        {
+            title: "Web Design",
+            pic: [
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/hair.gif", name: "YUN JIAN Website",
+                 details: [
+                     'http://p1wwe0p93.bkt.clouddn.com/%E7%BE%8E%E5%AE%B9%E7%BE%8E%E5%8F%91%E5%AE%98%E7%BD%91_01.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/%E7%BE%8E%E5%AE%B9%E7%BE%8E%E5%8F%91%E5%AE%98%E7%BD%91_02.jpg'
+                 ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%98%E5%AE%98%E7%BD%91%E7%BC%A9%E7%95%A5%E5%9B%BE.jpg",
+                 name: "Readchen Website", 
+                 details: [
+                "http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%98.gif",
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%82%A6%E4%B9%98%E5%AE%98%E7%BD%91_02.png'
+                 ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E4%BA%91%E9%A1%B6%E4%B9%8B%E6%98%9F2.gif",
+                 name: "Genting Star Website",
+                  details: [
+                      'http://p1wwe0p93.bkt.clouddn.com/%E4%BA%91%E9%A1%B6%E4%B9%8B%E6%98%9F%E9%A6%96%E9%A1%B52-1.jpg',
+                      'http://p1wwe0p93.bkt.clouddn.com/%E4%BA%91%E9%A1%B6%E4%B9%8B%E6%98%9F%E9%A6%96%E9%A1%B51.jpg',
+                      'http://p1wwe0p93.bkt.clouddn.com/%E4%BA%91%E9%A1%B6%E4%B9%8B%E6%98%9F%E9%A6%96%E9%A1%B51-1.jpg'
+                  ], 
+                  link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2.gif",
+                 name: "Payment Link Backend Design",
+                  details: [
+                      'http://p1wwe0p93.bkt.clouddn.com/payment%20gateway%E7%99%BB%E5%BD%95%E9%A1%B5.jpg',
+                      'http://p1wwe0p93.bkt.clouddn.com/%E9%BB%98%E8%AE%A4%E9%A6%96%E9%A1%B5%E9%9D%A2.jpg',
+                      'http://p1wwe0p93.bkt.clouddn.com/%E9%A6%96%E9%A1%B5.jpg'
+                  ], link: '' },
+
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E5%90%88%E9%9B%866.gif", name: "Backend Collection Design",
+                 details: [ 'RMS BACKEND DESIGN',
+                 'http://p1wwe0p93.bkt.clouddn.com/rms1.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/rms2.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/rms3.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/resonline1.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/resonline2.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/quickpay1.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/quickpay2.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/CMS1.jpg',
+                 'http://p1wwe0p93.bkt.clouddn.com/cms2.jpg',
+
+                 ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E4%B8%BD%E6%98%9F%E7%BD%91%E7%AB%99%E7%BC%A9%E7%95%A5%E5%9B%BE.jpg",
+                 name: "Star Cruises Website Version2", details: [
+                'http://p1wwe0p93.bkt.clouddn.com/%E4%B8%BD%E6%98%9F%E9%82%AE%E8%BD%AE%E5%AE%98%E7%BD%911.png',
+                'http://p1wwe0p93.bkt.clouddn.com/%E4%B8%BD%E6%98%9F%E9%82%AE%E8%BD%AE%E5%AE%98%E7%BD%912.png',
+                'http://p1wwe0p93.bkt.clouddn.com/%E4%B8%BD%E6%98%9F%E9%82%AE%E8%BD%AE%E5%AE%98%E7%BD%913.png',
+                 ], link: '' },
+            ]
+        },
+        {
+            title: "Graphic Design",
+            pic: [
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E5%9B%A2%E5%BB%BA1.jpg",
+                 name: "Genting HK Corporate Recruitment Poster",
+                 details: [
+                     'http://p1wwe0p93.bkt.clouddn.com/%E6%9C%89%E6%B4%BB%E5%8A%9B%E6%9B%B4%E6%9C%89%E5%87%9D%E8%81%9A%E5%8A%9B1.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/%E6%9C%89%E6%B4%BB%E5%8A%9B%E6%9B%B4%E6%9C%89%E5%87%9D%E8%81%9A%E5%8A%9B2.jpg',
+                     'http://p1wwe0p93.bkt.clouddn.com/%E6%9C%89%E6%B4%BB%E5%8A%9B%E6%9B%B4%E6%9C%89%E5%87%9D%E8%81%9A%E5%8A%9B%20%E6%8B%B7%E8%B4%9D.jpg'
+                 ]},
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/resonline%E6%89%8B%E7%BB%98%E7%BC%A9%E7%95%A5%E5%9B%BE.jpg", name: "Cruise Illustration", 
+                  details: [
+                      'http://p1wwe0p93.bkt.clouddn.com/resonline%E6%89%8B%E7%BB%98%E6%B5%B7%E6%8A%A5.jpg',
+                      'http://p1wwe0p93.bkt.clouddn.com/cruiselife.png',
+                      ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E7%94%9F%E6%97%A5%E6%B5%B7%E6%8A%A53.jpg", name: "Genting HK Birthday Activity Poster",
+                 details: [
+                'http://p1wwe0p93.bkt.clouddn.com/%E7%8B%97%E9%9F%B3%E4%B9%90%E7%9B%92%E7%94%9F%E6%97%A5%E6%B5%B7%E6%8A%A5.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%25e7%25ac%25ac%25e5%259b%259b%25e5%25ad%25a3%25e5%25ba%25a6%25e7%2594%259f%25e6%2597%25a5%25e4%25bc%259a%25e6%25b5%25b7%25e6%258a%25a5-%25e8%258b%25b1%25e6%2596%2587.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%B5%B7%E6%8A%A5-%E8%8B%B1%E6%96%87%E7%89%88.jpg'
+                 ],
+                 
+                  link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E8%89%BA%E6%9C%AF%E6%8F%92%E8%8A%B14.jpg", name: "Flower Arrangement Poster",
+                 details: [
+                     'http://p1wwe0p93.bkt.clouddn.com/%E8%89%BA%E6%9C%AF%E6%8F%92%E8%8A%B12.jpg',
+                 ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E5%85%B6%E4%BB%96%E6%B5%B7%E6%8A%A55.jpg",
+                 name: "Genting HK Activity Poster Collection",
+                 details: [
+                'http://p1wwe0p93.bkt.clouddn.com/%E5%8A%9E%E5%85%AC%E5%AE%A4%E4%BF%9D%E5%81%A5%E6%B5%B7%E6%8A%A5.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%98%9F%E8%BF%9E%E6%98%9F%E6%B5%B7%E6%8A%A5%E8%8B%B1%E6%96%87%E7%89%88.jpg',
+                'http://p1wwe0p93.bkt.clouddn.com/%E6%98%9F%E8%BF%9E%E6%98%9F%E6%B5%B7%E6%8A%A5%E8%8B%B1%E6%96%87%E7%89%88.jpg'
+
+                 ], link: '' },
+                { cover: "http://p1wwe0p93.bkt.clouddn.com/%E4%B8%83%E8%89%B2%E6%B5%B7%E6%8A%A56.jpg",
+                 name: "Genting HK Juice Activity Poster",
+                 details: [
+                     'http://p1wwe0p93.bkt.clouddn.com/%E4%B8%83%E8%89%B2%E6%9E%9C%E6%B1%81%E6%B5%B7%E6%8A%A5.jpg',
+                 ], link: '' },
+            ]
+        },
+      
+    ];
+
+</script>
+<script>
+    var work;
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            data: data,
+            current: 0,
+            isShow: false,
+            currentContent: data[0]['pic'][0]
+        },
+        mounted: function () {
+            work = new Swiper('#work', {
+                direction: 'horizontal',
+                speed: 500,
+                // effect : 'cube',
+                onInit: function (work) {
+                    console.log(work.activeIndex);
+                },
+                onSlideChangeEnd: function (work) {
+                    vm.current = work.activeIndex;
+                    console.log(work.activeIndex)
+                }
+
+            });
+        },
+        methods: {
+            jump: function (i) {
+                work.slideTo(i, 1000, false);
+                this.current = i;
+            },
+            showDialog: function (item) {
+                this.isShow = true;
+                console.log(item)
+                this.currentContent = item;
+            },
+            close: function () {
+                this.isShow = false;
+            }
+        }
+
+    })
+    var swiper = new Swiper('#container', {
+        direction: 'vertical',
+        speed: 800,
+        mousewheelControl: true,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        onInit: function (swiper) {
+
+        },
+        onScroll: function (swiper) {
+            if (swiper.activeIndex > 0) {
+
+            } else {
+
+            }
+
+        }
+    });
+
+</script>
+<script>
+    //定义画布宽高和生成点的个数
+    var WIDTH = window.innerWidth, HEIGHT = window.innerHeight, POINT = 20;
+    if (WIDTH < 768) {
+        POINT = 10;
+    }
+    var canvas = document.getElementById('canvas');
+    canvas.width = WIDTH,
+        canvas.height = HEIGHT;
+    var context = canvas.getContext('2d');
+    context.strokeStyle = 'rgba(0,0,0,0.02)',
+        context.strokeWidth = 1,
+        context.fillStyle = 'rgba(0,0,0,0.05)';
+    var circleArr = [];
+
+    //线条：开始xy坐标，结束xy坐标，线条透明度
+    function Line(x, y, _x, _y, o) {
+        this.beginX = x,
+            this.beginY = y,
+            this.closeX = _x,
+            this.closeY = _y,
+            this.o = o;
+    }
+    //点：圆心xy坐标，半径，每帧移动xy的距离
+    function Circle(x, y, r, moveX, moveY) {
+        this.x = x,
+            this.y = y,
+            this.r = r,
+            this.moveX = moveX,
+            this.moveY = moveY;
+    }
+    //生成max和min之间的随机数
+    function num(max, _min) {
+        var min = arguments[1] || 0;
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    // 绘制原点
+    function drawCricle(cxt, x, y, r, moveX, moveY) {
+        var circle = new Circle(x, y, r, moveX, moveY)
+        cxt.beginPath()
+        cxt.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI)
+        cxt.closePath()
+        cxt.fill();
+        return circle;
+    }
+    //绘制线条
+    function drawLine(cxt, x, y, _x, _y, o) {
+        var line = new Line(x, y, _x, _y, o)
+        cxt.beginPath()
+        cxt.strokeStyle = 'rgba(0,0,0,' + o + ')'
+        cxt.moveTo(line.beginX, line.beginY)
+        cxt.lineTo(line.closeX, line.closeY)
+        cxt.closePath()
+        cxt.stroke();
+
+    }
+    //初始化生成原点
+    function init() {
+        circleArr = [];
+        for (var i = 0; i < POINT; i++) {
+            circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(15, 2), num(10, -10) / 40, num(10, -10) / 40));
+        }
+        draw();
+    }
+
+    //每帧绘制
+    function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < POINT; i++) {
+            drawCricle(context, circleArr[i].x, circleArr[i].y, circleArr[i].r);
+        }
+        for (var i = 0; i < POINT; i++) {
+            for (var j = 0; j < POINT; j++) {
+                if (i + j < POINT) {
+                    var A = Math.abs(circleArr[i + j].x - circleArr[i].x),
+                        B = Math.abs(circleArr[i + j].y - circleArr[i].y);
+                    var lineLength = Math.sqrt(A * A + B * B);
+                    var C = 1 / lineLength * 7 - 0.009;
+                    var lineOpacity = C > 0.03 ? 0.03 : C;
+                    if (lineOpacity > 0) {
+                        drawLine(context, circleArr[i].x, circleArr[i].y, circleArr[i + j].x, circleArr[i + j].y, lineOpacity);
+                    }
+                }
+            }
+        }
+    }
+
+    //调用执行
+    window.onload = function () {
+        init();
+        console.log('load')
+        setInterval(function () {
+            for (var i = 0; i < POINT; i++) {
+                var cir = circleArr[i];
+                cir.x += cir.moveX;
+                cir.y += cir.moveY;
+                if (cir.x > WIDTH) cir.x = 0;
+                else if (cir.x < 0) cir.x = WIDTH;
+                if (cir.y > HEIGHT) cir.y = 0;
+                else if (cir.y < 0) cir.y = HEIGHT;
+
+            }
+            draw();
+        }, 16);
+    }
+
+</script>
+
+</html>

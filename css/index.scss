@@ -1,0 +1,501 @@
+@import "_screen";
+@import "_color";
+@import "_reset";
+@import "_font";
+@import "_animation";
+
+body{
+    @extend %sc-full-page;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+%origin{
+    top:0;
+    left:0;
+}
+%tc{
+    text-align: center;
+}
+.sc-abs-center{
+    @extend %sc-abs-center;
+}
+html{
+    @include phone{
+        .swiper-pagination{
+            display: none;
+        }
+    }
+    @include ipad{
+        .swiper-pagination{
+            display: none;
+        }
+    }
+    @include pc{
+        .swiper-container-vertical{
+            >.swiper-pagination-bullets{
+                left:15px;
+                width: 30px;
+            }
+        }
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin:10px;
+        }
+        .swiper-pagination-bullet{
+            width: 10px;
+            height: 10px;
+            border:1px solid #666;
+            background: #ffffff;
+            opacity: 0.2;
+          
+        }
+        .swiper-pagination-bullet-active{
+            background:$GREEN;
+            border-color:$GREEN; 
+            opacity: 1;
+            
+        }
+    }
+   
+}
+
+#app{
+    @extend %sc-full-page;
+}
+.swiper-container{
+    @extend %sc-full-page;
+    .swiper-wrapper{
+        @extend %sc-full-page;
+        
+        .swiper-slide{
+            overflow: hidden;
+        }
+        .page{
+            @extend %sc-full-page;
+            position: relative;
+        }
+        .page_one{
+            position: absolute;
+            @extend %origin;
+            ;
+            h3{
+                font-family: "Times New Roman";
+                color:#fff;
+                font-size:1.5rem;
+                span{
+                    display: inline-block;
+                }
+            }
+            .ui{
+                color: #ffffff;
+                font-size: 2.5rem;
+                margin-left:5px;
+            }
+            .an1{
+                animation:down1 1.25s linear .5s;
+                -webkit-animation:down1 1.25s linear .5s;
+            }
+            .an2{
+                animation:up1 1.5s linear .5s;
+                -webkit-animation:up1 1.5s linear .5s;
+            }
+            .an3{
+                animation:down2 1.5s linear .5s;
+                -webkit-animation:down2 1.5s linear .5s;
+            }
+            .nouvelle{
+                font-size: 3rem;
+                color:$GREEN;
+                animation:up2 1.75s linear .5s;
+                -webkit-animation:up2 1.75s linear .5s;
+            }
+        }
+        .page_2{
+             padding-top:6rem;
+             color:#000000;
+             position: absolute;
+             @extend %origin;
+             @extend %sc-full-page;
+            .title{
+                
+                @extend %tc;
+                font-size: 2rem;
+                
+                @include phone{
+                    font-size: 1.5rem;
+                }
+            }
+            .descrition{
+                @extend %tc;
+                font-size: 14px;
+                margin-top: 1rem;
+                line-height: 1.5rem;
+                @include phone{
+           
+                    line-height: 1.5;
+                }
+            }
+            .profile{
+                @extend %tc;
+                @include pc{
+                    margin-top:13vh;;
+                   
+                }
+                @include phone{
+                    margin-top:30px;
+                    
+                }
+                
+                .avatar{
+                    background:rgba(0,239,167,.7);
+                    display: inline-block;
+                    width:280px;
+                    height: 300px;
+                    vertical-align: top;
+                    img{
+                        width:280px;
+                        height: 290px;
+                        position: relative;
+                        top:-20px;
+                        left:20px;
+                        
+                    }
+                    @include ipad{
+                        width:200px;
+                        height: 200px;
+                        img{
+                            width:200px;
+                            height: 200px;
+                        }
+                    }
+                    @include phone{
+                        width:150px;
+                        height: 150px;
+                        img{
+                            width:150px;
+                            height: 150px;
+                        }
+                    }
+                
+                }
+                
+                .detail{
+                    display: inline-block;
+                    text-align: left;
+                    @include pc{
+                        margin-left:60px;
+                    }
+                    div{
+                        margin-top:5px;
+                        @include phone{
+                            padding:0 10px;
+                        }
+                    }
+                    .name{
+                        position: relative;
+                        top:-15px;
+                        font-size: 22px;
+                        font-weight: bold;
+                        @include phone{
+                            top:0;
+                            text-align: center;
+                        }
+                    }
+                    .time{
+                        margin-top:18px;
+                        color:#919191;
+                        font-size: 12px;
+                    }
+                    .company{
+                        font-size: 14px;
+                        font-weight:600;
+                        .position{
+                            color:$GREEN;
+                            padding-left:12px;
+                        }
+                    }   
+                    .job{
+                        color:#000000;
+                        font-size: 13px;
+                    }
+                    .content{
+                        font-size: 12px;
+                        color:#333;
+                        max-width: 30rem;
+                    }
+                    
+
+                }
+            }
+
+        }
+        .page_3{
+            padding-top:6rem;
+            color:#ffffff;
+            background: url('/images/jihe_bg.png') 0 0;
+            .title{
+                &:before{
+                    content:"";
+                    display: block;
+                }
+                @extend %tc;
+                font-size: 2rem;
+                
+                @include phone{
+                    font-size: 1.5rem;
+                }
+            }
+            .descrition{
+                @extend %tc;
+                font-size: 14px;
+                margin-top: 1rem;
+                line-height: 1.5rem;
+                @include phone{
+                   
+                    line-height:1.2;
+                }
+            }
+            .nav{
+                text-align: center;
+                margin-top:4rem;
+                font-size: 14px;
+                span{
+                    display: inline-block;
+                    padding: 5px;
+                    margin:0 5px;
+                    transition:color  .2s linear ;
+                    cursor: pointer;
+                    position: relative;
+                    i{
+                        position: absolute;
+                        width:0;
+                        border-top:1px solid $GREEN;
+                        bottom:-2px;
+                        left:0;
+                        transition: width .2s linear;
+                    }
+                    &:hover{
+                        color:$GREEN;
+                    }
+                    &:hover i{
+                        width: 100%;
+                    }
+                    
+                }
+                .active{
+                    color:$GREEN;
+                }
+
+            }
+            #work{
+                margin: 0 auto;
+                margin-top:2rem;
+               
+                width:800px;         
+                .swiper-wrapper{
+                    img{
+                        float: left;
+                        width:32%;
+                        margin-top:1%;
+                        margin-right:1%;
+                    }
+                    &:after{
+                        content:"";
+                        display: block;
+                        clear: both;
+                    }
+                }
+                   
+                
+                @include phone{
+                    width:100%;  
+                    .swiper-wrapper{
+                        padding-left:6%;
+                        img{
+                            float: left;
+                            width:42%;
+                            margin-top:3%;
+                            margin-right:6%;
+                        }
+                    }
+                }
+            }
+        }
+        .page_4{
+            background: url('/images/bottom_bg.png') 0 0 ;
+            border-top:1px solid transparent;
+            
+            .contact{
+                margin:0 auto;
+                position: relative;
+                margin-top:10vh;
+                
+                @include phone{
+                    margin-top:10vh;
+                }
+                box-sizing: border-box;
+                width:80vw;
+                max-width: 800px;
+                height:80vh;
+                padding:100px;
+                background: rgba(255,255,255,.5);
+                box-shadow: 0 0 5px #666;
+                .title{
+                    
+                    @extend %tc;
+                    font-size: 2rem;
+                    
+                    @include phone{
+                        font-size: 1.5rem;
+                    }
+                }
+                .descrition{
+                    @extend %tc;
+                    font-size: 14px;
+                    margin-top: 1rem;
+                    line-height: 1.5rem;
+                    @include phone{
+                        
+                        line-height: 1.2;
+                    }
+                }
+                .box{
+                    text-align: center;
+                    @extend %sc-abs-center;
+                    width: 100%;
+                    >div{
+                        text-align: center;
+                        display: inline-block;
+                        width: 180px;
+                        p{
+                            margin-top:20px;
+                        }
+                    }
+                    @include ipad{
+                        font-size: 0.8rem;
+                        img{
+                            width:1.5rem;   
+                        }
+                        >div{
+                            margin-top:1.5rem;
+                        }
+                    }
+                    @include phone{
+                        img{
+                            width:1.5rem;   
+                        }
+                        >div{
+                            margin-top:1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.back_draw {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease;
+    overflow: auto;
+    z-index: 999;
+    &.hidden {
+        transform: scale(0);
+    }
+    .content {
+        width: 64%;
+        margin: 30px auto;
+    
+        position: relative;
+        background: #fff;
+        border-radius: 5px;
+        height: 1000px;
+        .content_title{
+            font-family: Arial, Helvetica, sans-serif;
+            padding:25px 15px;
+            box-sizing:border-box;
+            &:after{
+                clear: both;
+                content:'';
+                display:block;
+
+            }
+            span{
+                color:#333;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            a{
+                background: #64CC97;
+                color:#fff;
+                font-size: 18px;
+                font-weight: bold;
+                float: right;
+                height: 35px;
+                line-height: 35px;
+                border-radius: 17px;
+                padding:0 15px;
+                text-align: center;
+
+            }
+            @include phone{
+                span{
+                    font-size: 1rem;
+                    display: block;
+                    padding:5px 0;
+                }
+                a{
+                    float: left;
+                    font-size: 0.8rem;
+                    height: 25px;
+                    line-height: 25px;
+                    border-radius: 12px;
+                    padding:0 8px;
+                }
+            }
+            @include ipad{
+                span{
+                    font-size: 1.3rem;
+                    display: block;
+                    padding:5px 0;
+                }
+                a{
+                    float: left;
+                    font-size: 8rem;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 15px;
+                    padding:0 12px;
+                }
+            }
+            
+        }
+        .close {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 25px;
+            height: 25px;
+            background: #969696;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .close:hover{
+            background: #4d4d4d;
+        }
+        .img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+
+
+
