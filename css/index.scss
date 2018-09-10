@@ -112,11 +112,17 @@ html{
             }
         }
         .page_2{
-             padding-top:6rem;
+            
              color:#000000;
              position: absolute;
              @extend %origin;
              @extend %sc-full-page;
+             @include pc{
+                padding-top:6rem;
+            }
+            @include phone{
+                padding-top:3rem;
+            }
             .title{
                 
                 @extend %tc;

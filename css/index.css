@@ -266,9 +266,20 @@ body {
 }
 
 .swiper-container .swiper-wrapper .page_2 {
-  padding-top: 6rem;
   color: #000000;
   position: absolute;
+}
+
+@media screen and (min-width: 961px) {
+  .swiper-container .swiper-wrapper .page_2 {
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-container .swiper-wrapper .page_2 {
+    padding-top: 3rem;
+  }
 }
 
 .swiper-container .swiper-wrapper .page_2 .title {
