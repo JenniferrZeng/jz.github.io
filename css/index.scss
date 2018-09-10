@@ -269,9 +269,17 @@ html{
                 }
             }
             .nav{
-                text-align: center;
+               ;
+                @include pc{
+                    text-align: center;
                 margin-top:4rem;
-                font-size: 14px;
+                font-size: 14px
+                }
+                @include phone{
+                    text-align: center;
+                margin-top:1rem;
+                font-size: 14px
+                }
                 span{
                     display: inline-block;
                     padding: 5px;

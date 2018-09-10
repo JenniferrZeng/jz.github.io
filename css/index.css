@@ -451,10 +451,20 @@ body {
   }
 }
 
-.swiper-container .swiper-wrapper .page_3 .nav {
-  text-align: center;
-  margin-top: 4rem;
-  font-size: 14px;
+@media screen and (min-width: 961px) {
+  .swiper-container .swiper-wrapper .page_3 .nav {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-container .swiper-wrapper .page_3 .nav {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+  }
 }
 
 .swiper-container .swiper-wrapper .page_3 .nav span {
