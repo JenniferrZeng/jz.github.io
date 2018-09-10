@@ -155,20 +155,20 @@ html{
                 
                 .avatar{
                     
-                    img{
-                        width:280px;
-                        height: 290px;
-                        position: relative;
-                        top:-20px;
-                        left:20px;
-                        
-                    }
+                  
                     @include pc{
                         background:rgba(0,239,167,.7);
                     display: inline-block;
                     width:280px;
                     height: 300px;
                     vertical-align: top;
+                    img{
+                        width:280px;
+                        height: 290px;
+                        position: relative;
+                        top:-20px;
+                        left:20px;  
+                       }
                     }
                     @include ipad{
                         width:200px;

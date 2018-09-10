@@ -316,14 +316,6 @@ body {
   }
 }
 
-.swiper-container .swiper-wrapper .page_2 .profile .avatar img {
-  width: 280px;
-  height: 290px;
-  position: relative;
-  top: -20px;
-  left: 20px;
-}
-
 @media screen and (min-width: 961px) {
   .swiper-container .swiper-wrapper .page_2 .profile .avatar {
     background: rgba(0, 239, 167, 0.7);
@@ -331,6 +323,13 @@ body {
     width: 280px;
     height: 300px;
     vertical-align: top;
+  }
+  .swiper-container .swiper-wrapper .page_2 .profile .avatar img {
+    width: 280px;
+    height: 290px;
+    position: relative;
+    top: -20px;
+    left: 20px;
   }
 }
 
