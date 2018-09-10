@@ -236,7 +236,7 @@ html{
 
         }
         .page_3{
-            padding-top:6rem;
+          
             color:#ffffff;
             background: url('/images/jihe_bg.jpg') 0 0;
             .title{
@@ -246,8 +246,11 @@ html{
                 }
                 @extend %tc;
                 font-size: 2rem;
-                
+                @include pc{
+                    padding-top:6rem;
+                }
                 @include phone{
+                    padding-top:1rem;
                     font-size: 1.5rem;
                 }
             }

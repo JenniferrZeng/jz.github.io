@@ -412,7 +412,6 @@ body {
 }
 
 .swiper-container .swiper-wrapper .page_3 {
-  padding-top: 6rem;
   color: #ffffff;
   background: url("/images/jihe_bg.jpg") 0 0;
 }
@@ -426,8 +425,15 @@ body {
   display: block;
 }
 
+@media screen and (min-width: 961px) {
+  .swiper-container .swiper-wrapper .page_3 .title {
+    padding-top: 6rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .swiper-container .swiper-wrapper .page_3 .title {
+    padding-top: 1rem;
     font-size: 1.5rem;
   }
 }
