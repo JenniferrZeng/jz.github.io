@@ -154,11 +154,7 @@ html{
                 }
                 
                 .avatar{
-                    background:rgba(0,239,167,.7);
-                    display: inline-block;
-                    width:280px;
-                    height: 300px;
-                    vertical-align: top;
+                    
                     img{
                         width:280px;
                         height: 290px;
@@ -166,6 +162,13 @@ html{
                         top:-20px;
                         left:20px;
                         
+                    }
+                    @include pc{
+                        background:rgba(0,239,167,.7);
+                    display: inline-block;
+                    width:280px;
+                    height: 300px;
+                    vertical-align: top;
                     }
                     @include ipad{
                         width:200px;
@@ -176,7 +179,7 @@ html{
                         }
                     }
                     @include phone{
-                   
+                       
                         img{
                             display:none;
                             
