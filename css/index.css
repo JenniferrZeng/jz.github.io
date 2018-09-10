@@ -349,8 +349,7 @@ body {
     height: 150px;
   }
   .swiper-container .swiper-wrapper .page_2 .profile .avatar img {
-    width: 150px;
-    height: 150px;
+    display: none;
   }
 }
 

@@ -178,9 +178,8 @@ html{
                     @include phone{
                         width:150px;
                         height: 150px;
-                        img{
-                            width:150px;
-                            height: 150px;
+                        img{display:none;
+                            
                         }
                     }
                 
