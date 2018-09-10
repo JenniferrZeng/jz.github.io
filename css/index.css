@@ -344,10 +344,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .swiper-container .swiper-wrapper .page_2 .profile .avatar {
-    width: 150px;
-    height: 150px;
-  }
   .swiper-container .swiper-wrapper .page_2 .profile .avatar img {
     display: none;
   }
