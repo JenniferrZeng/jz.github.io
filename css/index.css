@@ -215,10 +215,6 @@ body {
   }
 }
 
-.swiper-container .swiper-wrapper .swiper-slide {
-  overflow: hidden;
-}
-
 .swiper-container .swiper-wrapper .page {
   position: relative;
 }

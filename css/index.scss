@@ -68,9 +68,7 @@ html{
     .swiper-wrapper{
         @extend %sc-full-page;
         
-        .swiper-slide{
-            overflow: hidden;
-        }
+     
         .page{
             @extend %sc-full-page;
             position: relative;
@@ -269,7 +267,7 @@ html{
                 }
             }
             .nav{
-               ;
+               
                 @include pc{
                     text-align: center;
                 margin-top:4rem;
